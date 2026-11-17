@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS task_management;
 USE task_management;
 
 CREATE TABLE IF NOT EXISTS tasks (
-    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id CHAR(36) NOT NULL,
     title VARCHAR(255) NOT NULL,
     description TEXT NULL,
     status ENUM('todo', 'in_progress', 'done') NOT NULL DEFAULT 'todo',
@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS tasks (
     INDEX idx_tasks_created_at (created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO tasks (title, description, status, assignee) VALUES
-('Setup Go Gin Boilerplate', 'Initialize project structure, database connection, and Redis client', 'done', 'Ibrahim'),
-('Implement Task Filtering & Pagination', 'Support status, keyword, assignee, page, limit, and sort params', 'in_progress', 'Ibrahim'),
-('Add Redis Cache Invalidation', 'Cache GET /api/tasks for 60s and invalidate on mutations', 'todo', 'Erwin'),
-('Build React Native Edit Modal', 'Allow updating task fields and refresh list automatically', 'todo', 'Ibrahim');
+INSERT INTO tasks (id, title, description, status, assignee) VALUES
+('11111111-1111-4111-8111-111111111101', 'Setup Go Gin Boilerplate', 'Initialize project structure, database connection, and Redis client', 'done', 'Ibrahim'),
+('11111111-1111-4111-8111-111111111102', 'Implement Task Filtering & Pagination', 'Support status, keyword, assignee, page, limit, and sort params', 'in_progress', 'Ibrahim'),
+('11111111-1111-4111-8111-111111111103', 'Add Redis Cache Invalidation', 'Cache GET /api/tasks for 60s and invalidate on mutations', 'todo', 'Erwin'),
+('11111111-1111-4111-8111-111111111104', 'Build React Native Edit Modal', 'Allow updating task fields and refresh list automatically', 'todo', 'Ibrahim');
