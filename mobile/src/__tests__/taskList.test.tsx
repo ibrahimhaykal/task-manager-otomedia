@@ -27,10 +27,10 @@ describe('TaskCard Component', () => {
     expect(getByText('In Progress')).toBeTruthy();
     expect(getByText('Pak Erwin Otomedia')).toBeTruthy();
 
-    fireEvent.press(getByText('Edit'));
+    await fireEvent.press(getByText('Edit'));
     expect(onEdit).toHaveBeenCalledWith(mockTask);
 
-    fireEvent.press(getByText('Hapus'));
+    await fireEvent.press(getByText('Hapus'));
     expect(onDelete).toHaveBeenCalledWith(mockTask);
   });
 });
