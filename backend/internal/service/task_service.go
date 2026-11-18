@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"math"
+	"log"
 	"strings"
 	"time"
 
@@ -129,7 +130,7 @@ func (s *taskService) CreateTask(ctx context.Context, req model.CreateTaskReques
 
 	if s.cache != nil {
 		if err := s.cache.InvalidateTaskLists(ctx); err != nil {
-			return nil, fmt.Errorf("invalidate cache after create: %w", err)
+			log.Printf("warn: invalidate cache after create: %v", err)
 		}
 	}
 
@@ -163,7 +164,7 @@ func (s *taskService) UpdateTask(ctx context.Context, id string, req model.Updat
 
 	if s.cache != nil {
 		if err := s.cache.InvalidateTaskLists(ctx); err != nil {
-			return nil, fmt.Errorf("invalidate cache after update: %w", err)
+			log.Printf("warn: invalidate cache after update: %v", err)
 		}
 	}
 
@@ -181,7 +182,7 @@ func (s *taskService) DeleteTask(ctx context.Context, id string) error {
 
 	if s.cache != nil {
 		if err := s.cache.InvalidateTaskLists(ctx); err != nil {
-			return fmt.Errorf("invalidate cache after delete: %w", err)
+			log.Printf("warn: invalidate cache after delete: %v", err)
 		}
 	}
 
