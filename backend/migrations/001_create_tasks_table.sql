@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS tasks (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO tasks (id, title, description, status, assignee) VALUES
-INSERT INTO tasks (id, title, description, status, assignee) VALUES
 ('11111111-1111-4111-8111-111111111101', 'Setup Go Gin Boilerplate', 'Initialize project structure, database connection, and Redis client', 'done', 'Ibrahim'),
 ('11111111-1111-4111-8111-111111111102', 'Implement Task Filtering & Pagination', 'Support status, keyword, assignee, page, limit, and sort params', 'in_progress', 'Ibrahim'),
 ('11111111-1111-4111-8111-111111111103', 'Add Redis Cache Invalidation', 'Cache GET /api/tasks for 60s and invalidate on mutations', 'todo', 'Pak Erwin Otomedia'),
